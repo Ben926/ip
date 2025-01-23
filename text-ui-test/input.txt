@@ -1,6 +1,14 @@
-todo Buy lunch
-deadline finish 2103 /by this Sunday
-mark 2
+good morning ronaldo
+todo
+todo buy food
+mark 1
+deadline asdnaklfnsdjknf
+deadline dsabd /by
+deadline return book /by tomorrow
 list
-event party /from sunday 1100 /to monday 0800
+event party /from
+event party /from tonight /to tomorrow
+mark 3
+mark 6
+list
 bye

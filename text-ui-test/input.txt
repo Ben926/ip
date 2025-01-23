@@ -1,0 +1,6 @@
+todo Buy lunch
+deadline finish 2103 /by this Sunday
+mark 2
+list
+event party /from sunday 1100 /to monday 0800
+bye

@@ -3,6 +3,7 @@ public class Deadline extends Task {
 
     public Deadline(String description, String due) {
         super(description);
+        this.due = due;
     }
 
     @Override

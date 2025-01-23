@@ -6,9 +6,12 @@ deadline asdnaklfnsdjknf
 deadline dsabd /by
 deadline return book /by tomorrow
 list
+delete 3
 event party /from
 event party /from tonight /to tomorrow
 mark 3
 mark 6
+list
+delete 2
 list
 bye

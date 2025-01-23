@@ -27,6 +27,8 @@ public class Ronaldo {
                     handleDeadlineCommand(line, arr);
                 } else if (line.startsWith("event")) {
                     handleEventCommand(line, arr);
+                } else if (line.startsWith("delete")) {
+                    handleDeleteCommand(line, arr);
                 } else {
                     throw new RonaldoException("No no no. Wrong. Speak properly please or " +
                             "I will shoot knuckleball at you.\n");
@@ -37,6 +39,20 @@ public class Ronaldo {
             line = sc.nextLine().trim();
         }
         System.out.println("Goodbye SIUUUU.");
+    }
+
+    private static void handleDeleteCommand(String line, ArrayList<Task> arr) throws RonaldoException {
+        try {
+            String[] tokens = line.split(" ");
+            Task task = arr.get(Integer.parseInt(tokens[1]) - 1);
+            arr.remove(task);
+            System.out.println(String.format("SIIUUUU I am Cristiano and I've deleted this task:\n%s\n", task));
+        } catch (IndexOutOfBoundsException e) {
+            throw new RonaldoException(String.format("Don't be stupid. No such task exists! " +
+                    "The list only has %d items.\n", arr.size()));
+        } catch (Exception e) {
+            throw new RonaldoException("Do it like this: delete <task_number>\n");
+        }
     }
 
     private static void handleMarkCommand(String line, ArrayList<Task> arr) throws RonaldoException {

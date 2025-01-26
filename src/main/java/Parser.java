@@ -20,4 +20,8 @@ public class Parser {
             throw new RonaldoException("No no no. Wrong. Speak properly please.\n");
         }
     }
+
+    public static void executeCommand(Command command, String line) {
+
+    }
 }

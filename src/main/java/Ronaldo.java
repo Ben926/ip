@@ -9,12 +9,66 @@ import java.time.format.DateTimeParseException;
 
 public class Ronaldo {
     private static final String TEXTFILE_PATH = "./data/ronaldo.txt";
+    private Storage storage;
+    private TaskList tasks;
+    private Ui ui;
+    private boolean isRunning = true;
+    static ArrayList<Task> arr;
+
+    public void run() {
+        ui = new Ui();
+        storage = new Storage("./data/ronaldo.txt");
+        tasks = new TaskList();
+        boolean isExit = false;
+
+        ui.printWelcomeText();
+        while (!isExit) {
+            try {
+                String line = ui.readCommand();
+                Command command = Parser.parseCommand(line);
+                isRunning = this.executeCommand(command, line);
+
+            } catch (RonaldoException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+    }
+
+    public boolean executeCommand(Command command, String line) throws RonaldoException{
+        switch (command) {
+            case LIST:
+                ui.printTasks(tasks);
+                return false;
+            case MARK:
+                handleMarkCommand(line, arr);
+                break;
+            case UNMARK:
+                handleUnmarkCommand(line, arr);
+                break;
+            case TODO:
+                handleTodoCommand(line, arr);
+                break;
+            case DEADLINE:
+                handleDeadlineCommand(line, arr);
+                break;
+            case EVENT:
+                handleEventCommand(line, arr);
+                break;
+            case DELETE:
+                handleDeleteCommand(line, arr);
+                break;
+            default:
+                throw new RonaldoException("No no no. Wrong. Speak properly please.\n");
+        }
+        return true;
+    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("SIIUUUUUU!!! Ronaldo here.");
         System.out.println("How can the GOAT help you?\n");
-        ArrayList<Task> arr = new ArrayList<>();
+        arr = new ArrayList<>();
         String line = sc.nextLine().trim();
         while (!line.equals("bye")) {
             try {

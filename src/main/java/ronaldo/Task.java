@@ -9,6 +9,10 @@ abstract public class Task {
         this.isDone = false;
     }
 
+    public boolean checkMatchingDescription(String subDescription) {
+        return this.description.contains(subDescription);
+    }
+
     public String getStatusIcon() {
         return (isDone ? "X" : " ");
     }

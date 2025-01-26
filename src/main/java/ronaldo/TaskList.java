@@ -9,6 +9,10 @@ public class TaskList {
         arr = new ArrayList<>();
     }
 
+    public TaskList(ArrayList<Task> arr) {
+        this.arr = arr;
+    }
+
     public void addTask(Task task) {
         arr.add(task);
     }
@@ -39,5 +43,10 @@ public class TaskList {
 
     public boolean isEmpty() {
         return arr.isEmpty();
+    }
+
+    public TaskList findMatchingTasks(String subDescription) {
+        return new TaskList(new ArrayList<Task>(this.arr.stream()
+                .filter(task -> task.checkMatchingDescription(subDescription)).toList()));
     }
 }

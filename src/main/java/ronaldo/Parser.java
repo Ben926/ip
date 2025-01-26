@@ -22,6 +22,8 @@ public class Parser {
             return Command.DELETE;
         } else if (line.equals("bye")) {
             return Command.BYE;
+        } else if (line.startsWith("find")) {
+            return Command.FIND;
         } else {
             throw new RonaldoException("No no no. Wrong. Speak properly please.\n");
         }
@@ -79,4 +81,15 @@ public class Parser {
         }
         return index - 1;
     }
+
+    public static String parseFindCommand(String line) throws RonaldoException {
+        try {
+            String subDescription = line.substring(4).trim();
+            return subDescription;
+        } catch (Exception e) {
+            throw new RonaldoException("Do it like this: find <description>\n");
+        }
+
+    }
+
 }

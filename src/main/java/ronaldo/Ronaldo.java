@@ -66,6 +66,11 @@ public class Ronaldo {
             case BYE:
                 ui.printExitText();
                 return false;
+            case FIND:
+                String subDescription = Parser.parseFindCommand(line);
+                TaskList filteredTaskList = tasks.findMatchingTasks(subDescription);
+                ui.printFoundTasks(filteredTaskList);
+                break;
             default:
                 throw new RonaldoException("Unexpected error occurred!\n");
         }

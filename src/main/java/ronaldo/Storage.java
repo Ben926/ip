@@ -5,11 +5,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Storage {
-    private static String TEXTFILE_PATH = "";
+    private String textFilePath;
 
     public Storage (String textFilePath) {
-        TEXTFILE_PATH = textFilePath;
-        File file = new File(TEXTFILE_PATH);
+        this.textFilePath = textFilePath;
+        File file = new File(this.textFilePath);
         File dir = file.getParentFile();
 
         if (dir != null && !dir.exists()) {
@@ -19,7 +19,7 @@ public class Storage {
 
     public void saveTasks(TaskList tasks) {
         try {
-            FileWriter fw = new FileWriter(TEXTFILE_PATH, false);
+            FileWriter fw = new FileWriter(this.textFilePath, false);
             for (int i = 0; i < tasks.size(); i++) {
                 fw.write(tasks.getTask(i).toString() + System.lineSeparator()); // Write each task to a new line
             }

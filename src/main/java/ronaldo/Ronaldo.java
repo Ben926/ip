@@ -33,41 +33,41 @@ public class Ronaldo {
     public boolean executeCommand(Command command, String line) throws RonaldoException{
         Task task;
         switch (command) {
-            case LIST:
-                ui.printAllTasks(tasks);
-                break;
-            case MARK:
-                task = tasks.markTask(Parser.parseIndex(line, tasks.size()));
-                ui.printMarkedTask(task);
-                break;
-            case UNMARK:
-                task = tasks.unmarkTask(Parser.parseIndex(line, tasks.size()));
-                ui.printUnmarkedTask(task);
-                break;
-            case DELETE:
-                task = tasks.deleteTask(Parser.parseIndex(line, tasks.size()));
-                ui.printDeletedTask(task);
-                break;
-            case TODO:
-                task = Parser.parseToDoCommand(line);
-                tasks.addTask(task);
-                ui.printAddedTask(task, tasks.size());
-                break;
-            case DEADLINE:
-                task = Parser.parseDeadlineCommand(line);
-                tasks.addTask(task);
-                ui.printAddedTask(task, tasks.size());
-                break;
-            case EVENT:
-                task = Parser.parseEventCommand(line);
-                tasks.addTask(task);
-                ui.printAddedTask(task, tasks.size());
-                break;
-            case BYE:
-                ui.printExitText();
-                return false;
-            default:
-                throw new RonaldoException("Unexpected error occurred!\n");
+        case LIST:
+            ui.printAllTasks(tasks);
+            break;
+        case MARK:
+            task = tasks.markTask(Parser.parseIndex(line, tasks.size()));
+            ui.printMarkedTask(task);
+            break;
+        case UNMARK:
+            task = tasks.unmarkTask(Parser.parseIndex(line, tasks.size()));
+            ui.printUnmarkedTask(task);
+            break;
+        case DELETE:
+            task = tasks.deleteTask(Parser.parseIndex(line, tasks.size()));
+            ui.printDeletedTask(task);
+            break;
+        case TODO:
+            task = Parser.parseToDoCommand(line);
+            tasks.addTask(task);
+            ui.printAddedTask(task, tasks.size());
+            break;
+        case DEADLINE:
+            task = Parser.parseDeadlineCommand(line);
+            tasks.addTask(task);
+            ui.printAddedTask(task, tasks.size());
+            break;
+        case EVENT:
+            task = Parser.parseEventCommand(line);
+            tasks.addTask(task);
+            ui.printAddedTask(task, tasks.size());
+            break;
+        case BYE:
+            ui.printExitText();
+            return false;
+        default:
+            throw new RonaldoException("Unexpected error occurred!\n");
         }
         return true;
     }

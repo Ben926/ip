@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class StorageTest {
 
     @Test
-    public void storageInitialisationTest() {
+    public void storageInitialisation_noFileExists_fileCreated() {
         String testFilePath = "./test_data/test.txt";
         new Storage(testFilePath);
 
@@ -21,7 +21,7 @@ public class StorageTest {
     }
 
     @Test
-    public void saveTasksTest() throws Exception {
+    public void saveTasks_tasksGiven_tasksSavedIntoTextFile() throws Exception {
         String testFilePath = "./test_data/test_tasks.txt";
         Storage storage = new Storage(testFilePath);
 

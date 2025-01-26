@@ -4,7 +4,18 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+/**
+ * Handles the parsing of all inputs entered by the user.
+ */
 public class Parser {
+
+    /**
+     * Parses the user input and identifies the command type based on the Command enum.
+     *
+     * @param line The input string entered by the user.
+     * @return The corresponding Command enum for the input.
+     * @throws RonaldoException If the input does not match any recognized command.
+     */
     public static Command parseCommand(String line) throws RonaldoException {
         if (line.equals("list")) {
             return Command.LIST;
@@ -27,6 +38,13 @@ public class Parser {
         }
     }
 
+    /**
+     * Parses the user input to create a ToDo task.
+     *
+     * @param line The input string containing "todo" and description.
+     * @return A ToDo task with the specified description.
+     * @throws RonaldoException If the description is empty or invalid.
+     */
     public static Task parseToDoCommand(String line) throws RonaldoException {
         String description = line.substring(4).trim();
         if (description.isEmpty()) {
@@ -35,6 +53,13 @@ public class Parser {
         return new ToDo(description);
     }
 
+    /**
+     * Parses the user input to create a Deadline task.
+     *
+     * @param line The input string containing "deadline", the description, and due date.
+     * @return A Deadline task with the specified description and due date.
+     * @throws RonaldoException If the format is incorrect or the date is invalid.
+     */
     public static Task parseDeadlineCommand(String line) throws RonaldoException {
        try {
            String[] tokens = line.split("/by");
@@ -49,6 +74,13 @@ public class Parser {
         }
     }
 
+    /**
+     * Parses the user input to create an Event task.
+     *
+     * @param line The input string containing "event", the description, from date, and to date.
+     * @return An Event task with the specified description, start date, and end date.
+     * @throws RonaldoException If the format is incorrect or the date format is invalid.
+     */
     public static Task parseEventCommand(String line) throws RonaldoException {
         try {
             String[] tokens = line.split("/from|/to");
@@ -65,6 +97,14 @@ public class Parser {
         }
     }
 
+    /**
+     * Parses the user input to extract the 1-based index specified, checking if it is valid.
+     *
+     * @param line The input string containing the command and 1-based index keyed in by the user.
+     * @param maxIndex The maximum valid 1-based index for the task list.
+     * @return The zero-based index of the task.
+     * @throws RonaldoException If the format is incorrect or the index is out of bounds.
+     */
     public static int parseIndex(String line, int maxIndex) throws RonaldoException {
         int index;
         try {

@@ -4,9 +4,18 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * Handles the editing and storage of the text file that contains all tasks in the application.
+ */
 public class Storage {
     private static String TEXTFILE_PATH = "";
 
+    /**
+     * Constructs a new Storage instance with the specified file path.
+     * Ensures that the parent directory exists or creates it if it doesn't.
+     *
+     * @param textFilePath The path to the file where the text file containing the tasks will be stored.
+     */
     public Storage (String textFilePath) {
         TEXTFILE_PATH = textFilePath;
         File file = new File(TEXTFILE_PATH);
@@ -17,6 +26,12 @@ public class Storage {
         }
     }
 
+    /**
+     * Overwrites and saves all tasks in the provided TaskList to the
+     * text file in the instance's textFilePath.
+     *
+     * @param tasks The TaskList containing all tasks to be saved into the text file.
+     */
     public void saveTasks(TaskList tasks) {
         try {
             FileWriter fw = new FileWriter(TEXTFILE_PATH, false);

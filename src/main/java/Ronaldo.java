@@ -60,17 +60,6 @@ public class Ronaldo {
         System.out.println("Goodbye. SIUUUU.");
     }
 
-    enum Command {
-        LIST,
-        MARK,
-        UNMARK,
-        TODO,
-        DEADLINE,
-        EVENT,
-        DELETE,
-        BYE
-    }
-
     private static void saveTasks(ArrayList<Task> arr) {
         try {
             File dir = new File("./data/");

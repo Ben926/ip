@@ -1,3 +1,5 @@
+package ronaldo;
+
 public enum Command {
     LIST,
     MARK,

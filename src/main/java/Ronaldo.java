@@ -3,6 +3,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public class Ronaldo {
     private static final String TEXTFILE_PATH = "./data/ronaldo.txt";
@@ -173,11 +176,14 @@ public class Ronaldo {
             String[] tokens = line.split("/by");
             String description = tokens[0].substring(9).trim();
             String due = tokens[1].trim();
-            Task task = new Deadline(description, due);
+            LocalDate dueDate = LocalDate.parse(due, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            Task task = new Deadline(description, dueDate);
             arr.add(task);
             System.out.println("SIIUUU I am Cristiano and I've added this task:");
             System.out.println(task);
             System.out.println(String.format("Now you have %d tasks in the list\n", arr.size()));
+        } catch (DateTimeParseException e) {
+            throw new RonaldoException("Use 'yyyy-MM-dd' to specify dates. For example: 2025-01-26.\n");
         } catch (Exception e) {
             throw new RonaldoException("Do it like this: deadline <description> /by <date>\n");
         }
@@ -189,11 +195,15 @@ public class Ronaldo {
             String description = tokens[0].substring(6).trim();
             String from = tokens[1].trim();
             String to = tokens[2].trim();
-            Task task = new Event(description, from, to);
+            LocalDate fromDate = LocalDate.parse(from, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            LocalDate toDate = LocalDate.parse(to, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            Task task = new Event(description, fromDate, toDate);
             arr.add(task);
             System.out.println("SIIUUU I am Cristiano and I've added this task:");
             System.out.println(task);
             System.out.println(String.format("Now you have %d tasks in the list\n", arr.size()));
+        } catch (DateTimeParseException e) {
+            throw new RonaldoException("Use 'yyyy-MM-dd' to specify dates. For example: 2025-01-26.\n");
         } catch (Exception e) {
             throw new RonaldoException("Do it like this: event <description> /from <start_time> /to <end_time>\n");
         }

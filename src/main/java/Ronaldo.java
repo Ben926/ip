@@ -1,5 +1,4 @@
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -20,7 +19,7 @@ public class Ronaldo {
                 switch (command) {
                     case LIST:
                         if (arr.isEmpty()) {
-                            System.out.println("List is empty! But my wallet is not. I am GOAT.");
+                            System.out.println("List is empty!");
                         }
                         for (int i = 0; i < arr.size(); i++) {
                             System.out.println(String.format("%d. %s", i + 1, arr.get(i)));
@@ -46,8 +45,7 @@ public class Ronaldo {
                         handleDeleteCommand(line, arr);
                         break;
                     default:
-                        throw new RonaldoException("No no no. Wrong. Speak properly please or " +
-                                "I will shoot knuckleball at you.\n");
+                        throw new RonaldoException("No no no. Wrong. Speak properly please.\n");
                 }
                 saveTasks(arr);
             } catch (RonaldoException e) {
@@ -56,7 +54,7 @@ public class Ronaldo {
                 line = sc.nextLine().trim();
             }
         }
-        System.out.println("Goodbye SIUUUU.");
+        System.out.println("Goodbye. SIUUUU.");
     }
 
     enum Command {
@@ -108,7 +106,7 @@ public class Ronaldo {
         } else if (line.equals("bye")) {
             return Command.BYE;
         } else {
-            throw new RonaldoException("No no no. Wrong. Speak properly please or I will shoot knuckleball at you.\n");
+            throw new RonaldoException("No no no. Wrong. Speak properly please.\n");
         }
     }
 

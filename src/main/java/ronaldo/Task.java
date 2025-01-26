@@ -19,6 +19,10 @@ abstract public class Task {
         this.isDone = false;
     }
 
+    public boolean checkMatchingDescription(String subDescription) {
+        return this.description.contains(subDescription);
+    }
+
     /**
      * Returns the status icon of the task, which indicates if it is done ("X") or not (" ").
      *
@@ -52,4 +56,5 @@ abstract public class Task {
     public String toString() {
         return String.format("[%s] %s", getStatusIcon(), this.description);
     }
+
 }

@@ -50,7 +50,7 @@ public class Ronaldo {
      * by default and false only if the command is of type BYE.
      * @throws RonaldoException If an unexpected error occurs while executing the command.
      */
-    public boolean executeCommand(Command command, String line) throws RonaldoException {
+    public boolean executeCommand(Command command, String line) throws RonaldoException{
         Task task;
         switch (command) {
         case LIST:
@@ -86,6 +86,11 @@ public class Ronaldo {
         case BYE:
             ui.printExitText();
             return false;
+        case FIND:
+            String subDescription = Parser.parseFindCommand(line);
+            TaskList filteredTaskList = tasks.findMatchingTasks(subDescription);
+            ui.printFoundTasks(filteredTaskList);
+            break;
         default:
             throw new RonaldoException("Unexpected error occurred!\n");
         }

@@ -85,4 +85,13 @@ public class Ui {
         }
         System.out.println("");
     }
+
+    public void printFoundTasks(TaskList filteredTaskList) {
+        if (filteredTaskList.isEmpty()) {
+            System.out.println("I couldn't find anything :(.\n");
+        } else {
+            System.out.println("SIUUUU. I found the following items:");
+            printAllTasks(filteredTaskList);
+        }
+    }
 }

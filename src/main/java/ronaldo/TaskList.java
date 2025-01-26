@@ -15,6 +15,10 @@ public class TaskList {
         arr = new ArrayList<>();
     }
 
+    public TaskList(ArrayList<Task> arr) {
+        this.arr = arr;
+    }
+
     /**
      * Adds a task to the TaskList.
      *
@@ -84,5 +88,10 @@ public class TaskList {
      */
     public boolean isEmpty() {
         return arr.isEmpty();
+    }
+
+    public TaskList findMatchingTasks(String subDescription) {
+        return new TaskList(new ArrayList<Task>(this.arr.stream()
+                .filter(task -> task.checkMatchingDescription(subDescription)).toList()));
     }
 }

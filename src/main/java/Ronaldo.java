@@ -8,58 +8,73 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 public class Ronaldo {
-    private static final String TEXTFILE_PATH = "./data/ronaldo.txt";
+    private static String TEXTFILE_PATH = "./data/ronaldo.txt";
     private Storage storage;
     private TaskList tasks;
     private Ui ui;
     private boolean isRunning = true;
     static ArrayList<Task> arr;
 
+    public Ronaldo(String filePath) {
+        TEXTFILE_PATH = filePath;
+    }
+
     public void run() {
         ui = new Ui();
         storage = new Storage("./data/ronaldo.txt");
         tasks = new TaskList();
-        boolean isExit = false;
 
         ui.printWelcomeText();
-        while (!isExit) {
+        while (isRunning) {
             try {
                 String line = ui.readCommand();
                 Command command = Parser.parseCommand(line);
                 isRunning = this.executeCommand(command, line);
-
             } catch (RonaldoException e) {
                 System.out.println(e.getMessage());
+            } finally {
+                storage.saveTasks(tasks);
             }
         }
 
     }
 
     public boolean executeCommand(Command command, String line) throws RonaldoException{
+        Task task;
         switch (command) {
             case LIST:
-                ui.printTasks(tasks);
-                return false;
+                ui.printAllTasks(tasks);
+                break;
             case MARK:
-                handleMarkCommand(line, arr);
+                task = tasks.markTask(Parser.parseIndex(line, tasks.size()));
+                ui.printMarkedTask(task);
                 break;
             case UNMARK:
-                handleUnmarkCommand(line, arr);
-                break;
-            case TODO:
-                handleTodoCommand(line, arr);
-                break;
-            case DEADLINE:
-                handleDeadlineCommand(line, arr);
-                break;
-            case EVENT:
-                handleEventCommand(line, arr);
+                task = tasks.unmarkTask(Parser.parseIndex(line, tasks.size()));
                 break;
             case DELETE:
-                handleDeleteCommand(line, arr);
+                task = tasks.deleteTask(Parser.parseIndex(line, tasks.size()));
                 break;
+            case TODO:
+                task = Parser.parseToDoCommand(line);
+                tasks.addTask(task);
+                ui.printAddedTask(task);
+                break;
+            case DEADLINE:
+                task = Parser.parseDeadlineCommand(line);
+                tasks.addTask(task);
+                ui.printAddedTask(task);
+                break;
+            case EVENT:
+                task = Parser.parseEventCommand(line);
+                tasks.addTask(task);
+                ui.printAddedTask(task);
+                break;
+            case BYE:
+                ui.printExitText();
+                return false;
             default:
-                throw new RonaldoException("No no no. Wrong. Speak properly please.\n");
+                throw new RonaldoException("Unexpected error occurred!\n");
         }
         return true;
     }

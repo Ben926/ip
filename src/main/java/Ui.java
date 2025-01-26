@@ -9,18 +9,37 @@ public class Ui {
         System.out.println("How can the GOAT help you?\n");
     }
 
+    public void printExitText() {
+        System.out.println("Goodbye. SIUUUU.");
+    }
+
     public String readCommand() {
         String line = sc.nextLine().trim();
         return line;
     }
 
-    public void printTasks(TaskList tasks) {
-        ArrayList<Task> arr = tasks.getTasks();
-        if (arr.isEmpty()) {
-            System.out.println("List is empty!");
+    public void printAddedTask(Task task) {
+        System.out.println(String.format("SIIUUUU I am Cristiano and I've deleted this task:\n%s\n", task));
+    }
+
+    public void printMarkedTask(Task task) {
+        System.out.println(String.format("SIIUUUU I am Cristiano and I've marked this task as done:\n%s\n", task));
+    }
+
+    public void printUnmarkedTask(Task task) {
+        System.out.println(String.format("SIIUUUU I am Cristiano and I've marked this task as undone:\n%s\n", task));
+    }
+
+    public void printDeletedTask(Task task) {
+        System.out.println(String.format("SIIUUUU I am Cristiano and I've deleted this task:\n%s\n", task));
+    }
+
+    public void printAllTasks(TaskList tasks) {
+        if (tasks.isEmpty()) {
+            System.out.println("Task list is empty!");
         }
-        for (int i = 0; i < arr.size(); i++) {
-            System.out.println(String.format("%d. %s", i + 1, arr.get(i)));
+        for (int i = 0; i < tasks.size(); i++) {
+            System.out.println(String.format("%d. %s", i + 1, tasks.getTask(i)));
         }
         System.out.println("");
     }

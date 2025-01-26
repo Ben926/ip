@@ -10,7 +10,7 @@ public class Storage {
         TEXTFILE_PATH = textFilePath;
     }
 
-    public static void saveTasks(ArrayList<Task> arr) {
+    public void saveTasks(TaskList tasks) {
         try {
             File dir = new File("./data/");
             if (!dir.exists()) {
@@ -18,9 +18,8 @@ public class Storage {
             }
 
             FileWriter fw = new FileWriter(TEXTFILE_PATH, false);
-
-            for (Task task : arr) {
-                fw.write(task.toString() + System.lineSeparator()); // Write each task to a new line
+            for (int i = 0; i < tasks.size(); i++) {
+                fw.write(tasks.getTask(i).toString() + System.lineSeparator()); // Write each task to a new line
             }
 
             fw.close();

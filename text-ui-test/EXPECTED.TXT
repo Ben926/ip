@@ -1,49 +1,48 @@
 SIIUUUUUU!!! Ronaldo here.
 How can the GOAT help you?
 
-No no no. Wrong. Speak properly please or I will shoot knuckleball at you.
-
-Do it like this: todo <description>
-
-SIIUUU I am Cristiano and I've added this task:
+SIIUUUU I am Cristiano and I've added this task:
 [T] [ ] buy food
-Now you have 1 tasks in the list
+Now you have 1 tasks in the list.
 
 SIIUUUU I am Cristiano and I've marked this task as done:
 [T] [X] buy food
 
-Do it like this: deadline <description> /by <date>
+SIIUUUU I am Cristiano and I've added this task:
+[D] [ ] return book (by: Jan 26 2025)
+Now you have 2 tasks in the list.
 
-Do it like this: deadline <description> /by <date>
-
-SIIUUU I am Cristiano and I've added this task:
-[D] [ ] return book (by: tomorrow)
-Now you have 2 tasks in the list
-
-1. [T] [X] buy food
-2. [D] [ ] return book (by: tomorrow)
-
-Don't be stupid. No such task exists! The list only has 2 items.
-
-Do it like this: event <description> /from <start_time> /to <end_time>
-
-SIIUUU I am Cristiano and I've added this task:
-[E] [ ] party (from: tonight to: tomorrow)
-Now you have 3 tasks in the list
-
-SIIUUUU I am Cristiano and I've marked this task as done:
-[E] [X] party (from: tonight to: tomorrow)
-
-Don't be stupid. No such task exists! The list only has 3 items.
+SIIUUUU I am Cristiano and I've added this task:
+[E] [ ] party (from Jan 25 2025 to Jan 27 2025)
+Now you have 3 tasks in the list.
 
 1. [T] [X] buy food
-2. [D] [ ] return book (by: tomorrow)
-3. [E] [X] party (from: tonight to: tomorrow)
+2. [D] [ ] return book (by: Jan 26 2025)
+3. [E] [ ] party (from Jan 25 2025 to Jan 27 2025)
+
+SIIUUUU I am Cristiano and I've unmarked this task:
+[T] [ ] buy food
+
+1. [T] [ ] buy food
+2. [D] [ ] return book (by: Jan 26 2025)
+3. [E] [ ] party (from Jan 25 2025 to Jan 27 2025)
+
+Don't be stupid. No such task exists! The list only has 4 items.
+
+Use 'yyyy-MM-dd' to specify dates. For example: 2025-01-26.
+
+Do it like this: deadline <description> /by <date>
+
+Use 'yyyy-MM-dd' to specify dates. For example: 2025-01-26.
+
+Proper description please.
 
 SIIUUUU I am Cristiano and I've deleted this task:
-[D] [ ] return book (by: tomorrow)
+[D] [ ] return book (by: Jan 26 2025)
 
-1. [T] [X] buy food
-2. [E] [X] party (from: tonight to: tomorrow)
+SIIUUUU I am Cristiano and I've deleted this task:
+[E] [ ] party (from Jan 25 2025 to Jan 27 2025)
 
-Goodbye SIUUUU.
+1. [T] [ ] buy food
+
+Goodbye. SIUUUU.

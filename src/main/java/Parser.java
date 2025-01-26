@@ -26,11 +26,11 @@ public class Parser {
     }
 
     public static Task parseToDoCommand(String line) throws RonaldoException {
-        String description = line.substring(5).trim();
+        String description = line.substring(4).trim();
         if (description.isEmpty()) {
             throw new RonaldoException("Proper description please.\n");
         }
-        return  new ToDo(description);
+        return new ToDo(description);
     }
 
     public static Task parseDeadlineCommand(String line) throws RonaldoException {
@@ -59,21 +59,22 @@ public class Parser {
         } catch (DateTimeParseException e) {
             throw new RonaldoException("Use 'yyyy-MM-dd' to specify dates. For example: 2025-01-26.\n");
         } catch (Exception e) {
-            throw new RonaldoException("Do it like this: event <description> /from <start_time> /to <end_time>\n");
+            throw new RonaldoException("Do it like this: event <description> /from <start_date> /to <end_date>\n");
         }
     }
 
     public static int parseIndex(String line, int maxIndex) throws RonaldoException {
+        int index;
         try {
             String[] tokens = line.split(" ");
-            int index = Integer.parseInt(tokens[1]);
-            if (index > maxIndex) {
-                throw new RonaldoException(String.format("Don't be stupid. No such task exists! " +
-                        "The list only has %d items.\n", maxIndex + 1));
-            }
-            return index - 1;
+            index = Integer.parseInt(tokens[1]);
         } catch (Exception e) {
             throw new RonaldoException("Do it like this: mark/unmark/delete <task_number>\n");
         }
+        if (index > maxIndex) {
+            throw new RonaldoException(String.format("Don't be stupid. No such task exists! " +
+                    "The list only has %d items.\n", maxIndex + 1));
+        }
+        return index - 1;
     }
 }

@@ -18,8 +18,9 @@ public class Ui {
         return line;
     }
 
-    public void printAddedTask(Task task) {
-        System.out.println(String.format("SIIUUUU I am Cristiano and I've deleted this task:\n%s\n", task));
+    public void printAddedTask(Task task, int size) {
+        System.out.println(String.format("SIIUUUU I am Cristiano and I've added this task:\n%s", task));
+        System.out.println(String.format("Now you have %d tasks in the list.\n", size));
     }
 
     public void printMarkedTask(Task task) {
@@ -27,7 +28,7 @@ public class Ui {
     }
 
     public void printUnmarkedTask(Task task) {
-        System.out.println(String.format("SIIUUUU I am Cristiano and I've marked this task as undone:\n%s\n", task));
+        System.out.println(String.format("SIIUUUU I am Cristiano and I've unmarked this task:\n%s\n", task));
     }
 
     public void printDeletedTask(Task task) {

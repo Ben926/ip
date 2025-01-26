@@ -33,7 +33,7 @@ public class ParserTest {
     @Test
     public void parseEventCommandTest() throws RonaldoException {
         Task task = Parser.parseEventCommand("event party /from 2025-01-25 /to 2025-01-27");
-        assertEquals("[E] [ ] party (from Jan 25 2025 to Jan 27 2025)", task.toString());
+        assertEquals("[E] [ ] party (from: Jan 25 2025 to: Jan 27 2025)", task.toString());
     }
 
     @Test

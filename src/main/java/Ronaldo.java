@@ -1,6 +1,12 @@
-import java.util.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Ronaldo {
+    private static final String TEXTFILE_PATH = "./data/ronaldo.txt";
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("SIIUUUUUU!!! Ronaldo here.");
@@ -13,7 +19,7 @@ public class Ronaldo {
                 switch (command) {
                     case LIST:
                         if (arr.isEmpty()) {
-                            System.out.println("List is empty! But my wallet is not. I am GOAT.");
+                            System.out.println("List is empty!");
                         }
                         for (int i = 0; i < arr.size(); i++) {
                             System.out.println(String.format("%d. %s", i + 1, arr.get(i)));
@@ -39,16 +45,16 @@ public class Ronaldo {
                         handleDeleteCommand(line, arr);
                         break;
                     default:
-                        throw new RonaldoException("No no no. Wrong. Speak properly please or " +
-                                "I will shoot knuckleball at you.\n");
+                        throw new RonaldoException("No no no. Wrong. Speak properly please.\n");
                 }
+                saveTasks(arr);
             } catch (RonaldoException e) {
                 System.out.println(e.getMessage());
             } finally {
                 line = sc.nextLine().trim();
             }
         }
-        System.out.println("Goodbye SIUUUU.");
+        System.out.println("Goodbye. SIUUUU.");
     }
 
     enum Command {
@@ -62,7 +68,27 @@ public class Ronaldo {
         BYE
     }
 
-    static Command parseCommand(String line) throws RonaldoException {
+    private static void saveTasks(ArrayList<Task> arr) {
+        try {
+            File dir = new File("./data/");
+            if (!dir.exists()) {
+                dir.mkdirs(); // Create the directory if it doesn't exist
+            }
+
+            FileWriter fw = new FileWriter(TEXTFILE_PATH, false);
+
+            for (Task task : arr) {
+                fw.write(task.toString() + System.lineSeparator()); // Write each task to a new line
+            }
+
+            fw.close();
+
+        } catch (IOException e) {
+            System.out.println("Error saving tasks: " + e.getMessage());
+        }
+    }
+
+    private static Command parseCommand(String line) throws RonaldoException {
         if (line.equals("list")) {
             return Command.LIST;
         } else if (line.startsWith("mark")) {
@@ -80,7 +106,7 @@ public class Ronaldo {
         } else if (line.equals("bye")) {
             return Command.BYE;
         } else {
-            throw new RonaldoException("No no no. Wrong. Speak properly please or I will shoot knuckleball at you.\n");
+            throw new RonaldoException("No no no. Wrong. Speak properly please.\n");
         }
     }
 

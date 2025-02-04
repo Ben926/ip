@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * An abstraction of the list of tasks in the Ronaldo application.
  */
-public class TaskList {
+class TaskList {
     private final ArrayList<Task> arr;
 
     /**

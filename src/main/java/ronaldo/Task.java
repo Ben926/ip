@@ -3,7 +3,7 @@ package ronaldo;
 /**
  * An abstract class that represents a task with a description and a completion status.
  */
-abstract public class Task {
+abstract class Task {
     private String description;
     private boolean isDone;
 

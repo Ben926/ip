@@ -3,7 +3,7 @@ package ronaldo;
 /**
  * The type of command entered by the user.
  */
-public enum Command {
+enum Command {
     LIST,
     MARK,
     UNMARK,
@@ -12,5 +12,6 @@ public enum Command {
     EVENT,
     DELETE,
     BYE,
-    FIND
+    FIND,
+    HELLO
 }

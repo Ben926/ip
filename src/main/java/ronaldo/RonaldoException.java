@@ -3,7 +3,7 @@ package ronaldo;
 /**
  * Custom exceptions for the Ronaldo application.
  */
-public class RonaldoException extends Exception {
+class RonaldoException extends Exception {
 
     /**
      * Constructs a new RonaldoException with the specified message.

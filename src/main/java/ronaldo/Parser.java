@@ -7,7 +7,7 @@ import java.time.format.DateTimeParseException;
 /**
  * Handles the parsing of all inputs entered by the user.
  */
-public class Parser {
+class Parser {
 
     /**
      * Parses the user input and identifies the command type based on the Command enum.
@@ -38,7 +38,10 @@ public class Parser {
         } else if (line.equals("hello")) {
             return Command.HELLO;
         } else {
-            throw new RonaldoException("No no no. Wrong. Speak properly please.\n");
+            throw new RonaldoException("No no no. Wrong. Speak properly please.\n"
+                    + "Try typing one of the following: \nhello\nlist\ntodo <desc>\ndeadline <desc> /by <date>\n"
+                    + "event <desc> /from <start> /to <end>\nmark <num>\nunmark <num>\ndelete <num>\nfind <keyword>\nbye (to exit the program)\n");
+
         }
     }
 

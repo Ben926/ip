@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * Handles all displayed outputs in the Ronaldo application.
  */
-public class Ui {
+class Ui {
     private final Scanner sc = new Scanner(System.in);
 
     /**
@@ -89,7 +89,7 @@ public class Ui {
      * Returns a message about the tasks found in the filtered task list.
      *
      * @param filteredTaskList The TaskList object containing the filtered tasks.
-     * @return The message about the found tasks or a message if no tasks were found.
+     * @return The string representation of all found tasks or a message if no tasks were found.
      */
     public String getFoundTasksText(TaskList filteredTaskList) {
         if (filteredTaskList.isEmpty()) {

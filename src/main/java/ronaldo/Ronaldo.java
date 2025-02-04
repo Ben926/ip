@@ -3,7 +3,7 @@ package ronaldo;
 /**
  * The main class of the Ronaldo application.
  */
-public class Ronaldo {
+class Ronaldo {
     private final String filePath;
     private TaskList tasks;
     private Ui ui;
@@ -16,9 +16,9 @@ public class Ronaldo {
      */
     public Ronaldo(String filePath) {
         this.filePath = filePath;
-        ui = new Ui();
-        storage = new Storage(filePath);
-        tasks = new TaskList();
+        this.ui = new Ui();
+        this.storage = new Storage(filePath);
+        this.tasks = new TaskList();
     }
 
     /**

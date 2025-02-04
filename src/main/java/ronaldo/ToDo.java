@@ -3,7 +3,7 @@ package ronaldo;
 /**
  * A basic task with no dates specified.
  */
-public class ToDo extends Task {
+class ToDo extends Task {
 
     /**
      * Constructs a new ToDo task with the given description.

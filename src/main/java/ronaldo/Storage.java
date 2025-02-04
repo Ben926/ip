@@ -7,7 +7,7 @@ import java.io.IOException;
 /**
  * Handles the editing and storage of the text file that contains all tasks in the application.
  */
-public class Storage {
+class Storage {
     private String textFilePath;
 
     /**

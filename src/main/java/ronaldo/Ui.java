@@ -1,12 +1,9 @@
 package ronaldo;
 
-import java.util.Scanner;
-
 /**
  * Handles all displayed outputs in the Ronaldo application.
  */
 class Ui {
-    private final Scanner sc = new Scanner(System.in);
 
     /**
      * Returns the welcome message to the user.

@@ -17,7 +17,7 @@ class Ronaldo {
     public Ronaldo(String filePath) {
         this.filePath = filePath;
         this.ui = new Ui();
-        this.storage = new Storage(filePath);
+        this.storage = new Storage(this.filePath);
         this.tasks = new TaskList();
     }
 

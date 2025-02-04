@@ -9,89 +9,93 @@ public class Ui {
     private final Scanner sc = new Scanner(System.in);
 
     /**
-     * Prints the welcome message to the user.
-     */
-    public void printWelcomeText() {
-        System.out.println("SIIUUUUUU!!! Ronaldo here.");
-        System.out.println("How can the GOAT help you?\n");
-    }
-
-    /**
-     * Prints the goodbye message to the user.
-     */
-    public void printExitText() {
-        System.out.println("Goodbye. SIUUUU.");
-    }
-
-    /**
-     * Reads the String entered by the user from the console.
+     * Returns the welcome message to the user.
      *
-     * @return The user's input as a trimmed string.
+     * @return The welcome message as a string.
      */
-    public String readCommand() {
-        String line = sc.nextLine().trim();
-        return line;
+    public String getWelcomeText() {
+        return "SIIUUUUUU!!! Ronaldo here.\nHow can the GOAT help you?\n";
     }
 
     /**
-     * Prints a message that a task has been added.
+     * Returns the goodbye message to the user.
+     *
+     * @return The goodbye message as a string.
+     */
+    public String getExitText() {
+        return "Goodbye. SIUUUU.";
+    }
+
+    /**
+     * Returns a message that a task has been added.
      *
      * @param task The task that was added.
      * @param size The total number of tasks in the list after adding the new task.
+     * @return The message about the added task as a string.
      */
-    public void printAddedTask(Task task, int size) {
-        System.out.println(String.format("SIIUUUU I am Cristiano and I've added this task:\n%s", task));
-        System.out.println(String.format("Now you have %d tasks in the list.\n", size));
+    public String getAddedTaskText(Task task, int size) {
+        return String.format("SIIUUUU I am Cristiano and " +
+                "I've added this task:\n%s\nNow you have %d tasks in the list.\n", task, size);
     }
 
     /**
-     * Prints a message that a task has been marked as done.
+     * Returns a message that a task has been marked as done.
      *
      * @param task The task that was marked as done.
+     * @return The message about the marked task as a string.
      */
-    public void printMarkedTask(Task task) {
-        System.out.println(String.format("SIIUUUU I am Cristiano and I've marked this task as done:\n%s\n", task));
+    public String getMarkedTaskText(Task task) {
+        return String.format("SIIUUUU I am Cristiano and I've marked this task as done:\n%s\n", task);
     }
 
     /**
-     * Prints a message that a task has been unmarked.
+     * Returns a message that a task has been unmarked.
      *
      * @param task The task that was unmarked.
+     * @return The message about the unmarked task as a string.
      */
-    public void printUnmarkedTask(Task task) {
-        System.out.println(String.format("SIIUUUU I am Cristiano and I've unmarked this task:\n%s\n", task));
+    public String getUnmarkedTaskText(Task task) {
+        return String.format("SIIUUUU I am Cristiano and I've unmarked this task:\n%s\n", task);
     }
 
     /**
-     * Prints a message that a task has been deleted.
+     * Returns a message that a task has been deleted.
      *
      * @param task The task that was deleted.
+     * @return The message about the deleted task as a string.
      */
-    public void printDeletedTask(Task task) {
-        System.out.println(String.format("SIIUUUU I am Cristiano and I've deleted this task:\n%s\n", task));
+    public String getDeletedTaskText(Task task) {
+        return String.format("SIIUUUU I am Cristiano and I've deleted this task:\n%s\n", task);
     }
 
     /**
-     * Prints all tasks currently in the task list, or that its empty if it is such.
+     * Returns a string representation of all tasks currently in the task list, or a message if it is empty.
      *
      * @param tasks The TaskList object containing all tasks.
+     * @return The string representation of all tasks or a message if the list is empty.
      */
-    public void printAllTasks(TaskList tasks) {
+    public String getAllTasksText(TaskList tasks) {
         if (tasks.isEmpty()) {
-            System.out.println("Task list is empty!");
+            return "Task list is empty!";
         }
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < tasks.size(); i++) {
-            System.out.println(String.format("%d. %s", i + 1, tasks.getTask(i)));
+            sb.append(String.format("%d. %s\n", i + 1, tasks.getTask(i)));
         }
-        System.out.println("");
+        return sb.toString();
     }
 
-    public void printFoundTasks(TaskList filteredTaskList) {
+    /**
+     * Returns a message about the tasks found in the filtered task list.
+     *
+     * @param filteredTaskList The TaskList object containing the filtered tasks.
+     * @return The message about the found tasks or a message if no tasks were found.
+     */
+    public String getFoundTasksText(TaskList filteredTaskList) {
         if (filteredTaskList.isEmpty()) {
-            System.out.println("I couldn't find anything :(.\n");
+            return "I couldn't find anything :(.\n";
         } else {
-            System.out.println("SIUUUU. I found the following items:");
-            printAllTasks(filteredTaskList);
+            return "SIUUUU. I found the following items:\n" + getAllTasksText(filteredTaskList);
         }
     }
 }

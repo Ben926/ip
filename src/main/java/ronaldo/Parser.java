@@ -35,6 +35,8 @@ public class Parser {
             return Command.BYE;
         } else if (line.startsWith("find")) {
             return Command.FIND;
+        } else if (line.equals("hello")) {
+            return Command.HELLO;
         } else {
             throw new RonaldoException("No no no. Wrong. Speak properly please.\n");
         }

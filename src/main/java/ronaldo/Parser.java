@@ -37,10 +37,13 @@ class Parser {
             return Command.FIND;
         } else if (line.equals("hello")) {
             return Command.HELLO;
+        } else if (line.equals("sort")){
+            return Command.SORT;
         } else {
             throw new RonaldoException("No no no. Wrong. Speak properly please.\n"
                     + "Try typing one of the following: \nhello\nlist\ntodo <desc>\ndeadline <desc> /by <date>\n"
-                    + "event <desc> /from <start> /to <end>\nmark <num>\nunmark <num>\ndelete <num>\nfind <keyword>\nbye (to exit the program)\n");
+                    + "event <desc> /from <start> /to <end>\nmark <num>\nunmark <num>\ndelete <num>\nfind <keyword>\nsort" +
+                    "\nbye (to exit the program)\n");
 
         }
     }

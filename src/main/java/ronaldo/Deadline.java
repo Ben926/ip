@@ -32,4 +32,8 @@ class Deadline extends Task {
                 this.due.format(DateTimeFormatter.ofPattern("MMM d yyyy")));
     }
 
+    public LocalDate getDueDate() {
+        return due;
+    }
+
 }

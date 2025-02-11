@@ -7,7 +7,8 @@ import java.io.File;
 import java.nio.file.Files;
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StorageTest {
 

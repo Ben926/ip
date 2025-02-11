@@ -16,7 +16,7 @@ class Storage {
      *
      * @param textFilePath The path to the file where the text file containing the tasks will be stored.
      */
-    public Storage (String textFilePath) {
+    public Storage(String textFilePath) {
         this.textFilePath = textFilePath;
         File file = new File(this.textFilePath);
         File dir = file.getParentFile();

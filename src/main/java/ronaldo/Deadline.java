@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /**
- * A Task with a single due date
+ * Represents Task with a single due date
  */
 class Deadline extends Task {
     private LocalDate due;

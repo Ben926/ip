@@ -19,7 +19,7 @@ abstract class Task {
         this.isDone = false;
     }
 
-    public boolean checkMatchingDescription(String subDescription) {
+    public boolean isMatchingDescription(String subDescription) {
         return this.description.contains(subDescription);
     }
 
@@ -29,7 +29,7 @@ abstract class Task {
      * @return A string representing the task's status icon.
      */
     public String getStatusIcon() {
-        return (isDone ? "X" : " ");
+        return isDone ? "X" : " ";
     }
 
     /**

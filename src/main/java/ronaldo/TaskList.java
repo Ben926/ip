@@ -92,6 +92,6 @@ class TaskList {
 
     public TaskList findMatchingTasks(String subDescription) {
         return new TaskList(new ArrayList<Task>(this.arr.stream()
-                .filter(task -> task.checkMatchingDescription(subDescription)).toList()));
+                .filter(task -> task.isMatchingDescription(subDescription)).toList()));
     }
 }

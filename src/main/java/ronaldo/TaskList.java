@@ -1,6 +1,7 @@
 package ronaldo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * An abstraction of the list of tasks in the Ronaldo application.
@@ -93,5 +94,9 @@ class TaskList {
     public TaskList findMatchingTasks(String subDescription) {
         return new TaskList(new ArrayList<Task>(this.arr.stream()
                 .filter(task -> task.isMatchingDescription(subDescription)).toList()));
+    }
+
+    public void sortTasks() {
+        Collections.sort(arr, new TaskComparator());
     }
 }

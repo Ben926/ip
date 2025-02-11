@@ -13,5 +13,6 @@ enum Command {
     DELETE,
     BYE,
     FIND,
-    HELLO
+    HELLO,
+    SORT
 }

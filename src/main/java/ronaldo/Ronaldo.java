@@ -53,7 +53,7 @@ class Ronaldo {
     public String executeCommand(Command command, String line) throws RonaldoException{
         Task task;
         String output = "";
-        int initialSize
+        int initialSize;
         switch (command) {
         case LIST:
             output = ui.getAllTasksText(tasks);
@@ -101,6 +101,10 @@ class Ronaldo {
             break;
         case HELLO:
             output = ui.getWelcomeText();
+            break;
+        case SORT:
+            tasks.sortTasks();
+            output = ui.getSortedTasksText(tasks);
             break;
         default:
             throw new RonaldoException("Unexpected error occurred!\n");

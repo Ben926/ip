@@ -95,4 +95,8 @@ class Ui {
             return "SIUUUU. I found the following items:\n" + getAllTasksText(filteredTaskList);
         }
     }
+
+    public String getSortedTasksText(TaskList tasks) {
+        return "Tasks have been sorted:\n" + getAllTasksText(tasks);
+    }
 }

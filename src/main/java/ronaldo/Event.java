@@ -36,4 +36,7 @@ public class Event extends Task{
                         this.to.format(DateTimeFormatter.ofPattern("MMM d yyyy")));
     }
 
+    public LocalDate getFromDate() {
+        return from;
+    }
 }

@@ -15,6 +15,8 @@ class Ronaldo {
      * @param filePath The path to the file where the text file containing the tasks will be stored.
      */
     public Ronaldo(String filePath) {
+        assert filePath != null : "File path should not be null!";
+        assert !filePath.trim().isEmpty() : "File path should not be empty!";
         this.filePath = filePath;
         this.ui = new Ui();
         this.storage = new Storage(this.filePath);
@@ -26,6 +28,8 @@ class Ronaldo {
      * the user stops the program or the program is killed.
      */
     public String run(String input) {
+        assert input != null : "User input should not be null!";
+        assert !input.trim().isEmpty() : "User input should not be empty!";
         String output = null;
         try {
             Command command = Parser.parseCommand(input);
@@ -49,6 +53,7 @@ class Ronaldo {
     public String executeCommand(Command command, String line) throws RonaldoException{
         Task task;
         String output = "";
+        int initialSize
         switch (command) {
         case LIST:
             output = ui.getAllTasksText(tasks);
@@ -67,17 +72,23 @@ class Ronaldo {
             break;
         case TODO:
             task = Parser.parseToDoCommand(line);
+            initialSize = tasks.size();
             tasks.addTask(task);
+            assert tasks.size() == initialSize + 1 : "Task list size should increase by 1 after adding a TODO!";
             output = ui.getAddedTaskText(task, tasks.size());
             break;
         case DEADLINE:
             task = Parser.parseDeadlineCommand(line);
+            initialSize = tasks.size();
             tasks.addTask(task);
+            assert tasks.size() == initialSize + 1 : "Task list size should increase by 1 after adding a TODO!";
             output = ui.getAddedTaskText(task, tasks.size());
             break;
         case EVENT:
             task = Parser.parseEventCommand(line);
+            initialSize = tasks.size();
             tasks.addTask(task);
+            assert tasks.size() == initialSize + 1 : "Task list size should increase by 1 after adding a TODO!";
             output = ui.getAddedTaskText(task, tasks.size());
             break;
         case BYE:

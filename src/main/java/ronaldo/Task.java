@@ -48,7 +48,7 @@ abstract class Task {
 
     /**
      * Returns a string representation of the task, including
-     * the status icon and the task's description.
+     * the status icon ([ ] or [X]) and the task's description.
      *
      * @return A formatted string representation of the task.
      */

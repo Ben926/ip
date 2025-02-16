@@ -17,4 +17,4 @@ Available Commands:
 - unmark <index>: marks the numebered task in your list as undone:
 - find <keyword(s)>: shows all tasks with description containing the keyword(s) specified
 - sort: sorts all tasks in your list in chronological order
-- bye: end the program
+- bye: ends the program and closes it!

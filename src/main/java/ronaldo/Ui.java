@@ -92,7 +92,7 @@ class Ui {
         if (filteredTaskList.isEmpty()) {
             return "I couldn't find anything :(.\n";
         } else {
-            return "SIUUUU. I found the following items:\n" + getAllTasksText(filteredTaskList);
+            return "SIUUUUU. I found the following items:\n" + getAllTasksText(filteredTaskList);
         }
     }
 

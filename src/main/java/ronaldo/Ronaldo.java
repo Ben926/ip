@@ -24,7 +24,7 @@ class Ronaldo {
     }
 
     /**
-     * Executes the Ronaldo application and processes user commands indefinitely until
+     * Executes the Ronaldo application and processes user's commands indefinitely until
      * the user stops the program or the program is killed.
      */
     public String run(String input) {

@@ -9,7 +9,7 @@ Simply open the ronaldo.jar file and start using this one of a kind task manager
 
 Available Commands:
 - hello: ronaldo says hi back!
-- list: show all tasks currently in your list
+- list: show all tasks currently in your list, with status icon and dates
 - todo <description>: add a todo task
 - event <decription> /from <startdate in YYYY-MM-DD> /to <enddate in YYYY-MM-DD>: add an event task
 - deadline <description> /by <date in YYYY-MM-DD>: add a deadline task

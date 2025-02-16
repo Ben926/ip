@@ -40,7 +40,7 @@ class Parser {
         } else if (line.equals("sort")){
             return Command.SORT;
         } else {
-            throw new RonaldoException("No no no. Wrong. Speak properly please.\n"
+            throw new RonaldoException("No no no. SIUUU. Wrong. Speak properly please.\n"
                     + "Try typing one of the following: \nhello\nlist\ntodo <desc>\ndeadline <desc> /by <date>\n"
                     + "event <desc> /from <start> /to <end>\nmark <num>\nunmark <num>\ndelete <num>\nfind <keyword>\nsort" +
                     "\nbye (to exit the program)\n");
